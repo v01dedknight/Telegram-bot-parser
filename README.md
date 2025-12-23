@@ -1,8 +1,10 @@
+# Telegram-bot-parser
+
 ## Description
-This bot is designed to conveniently search for the necessary information from my university's website. I will try to create a useful tool for students.
+This bot allows students to quickly search for relevant information on the university website. It is designed as a convenient tool to access news and other useful data.
 
 ## Objective
-A simple menu with a selection of the necessary options for working with data on the site.
+Provide a simple menu with options to interact with and retrieve data from the university site.
 
-## P. S.
-It is developed solely on its own initiative, without commercial purposes.
+## Notes
+The project is developed solely on a personal initiative and has no commercial purpose.
