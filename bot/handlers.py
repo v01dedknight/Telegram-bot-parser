@@ -11,9 +11,6 @@ from aiogram.fsm.context import FSMContext
 # Used to send files from memory (bytes) to Telegram
 from aiogram.types import BufferedInputFile
 
-# HTTP client for downloading PDF files from external sources
-import requests
-
 # Service for getting latest news (without search)
 from services.search import get_latest_news
 
@@ -132,9 +129,26 @@ async def category_chosen(message: Message, state: FSMContext):
     )
 
 
+# Back button
+@router.message(ScheduleStates.choosing_group, F.text == "Назад")
+async def back_to_categories(message: Message, state: FSMContext):
+    categories = get_categories()
+
+    await state.set_state(ScheduleStates.choosing_category)
+
+    await message.answer(
+        "Выберите категорию расписания:",
+        reply_markup=categories_keyboard(categories)
+    )
+
+
 # Handler for group selection
 @router.message(ScheduleStates.choosing_group)
 async def group_chosen(message: Message, state: FSMContext):
+    # to avoid processing this as a group
+    if message.text == "Назад":
+        return
+    
     group = message.text
     data = await state.get_data()
     category = data.get("category")

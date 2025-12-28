@@ -24,9 +24,12 @@ def categories_keyboard(categories: list[str]) -> ReplyKeyboardMarkup:
         resize_keyboard=True
     )
 
-# Group selection (encapsulated after category selection)
+# Group selection keyboard + Back button
 def groups_keyboard(groups: list[str]) -> ReplyKeyboardMarkup:
+    keyboard = [[KeyboardButton(text=group)] for group in groups]
+    keyboard.append([KeyboardButton(text="Назад")])
+
     return ReplyKeyboardMarkup(
-        keyboard=[[KeyboardButton(text=group)] for group in groups],
+        keyboard=keyboard,
         resize_keyboard=True
     )
