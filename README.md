@@ -8,3 +8,5 @@ Provide a simple menu with options to interact with and retrieve data from the u
 
 ## Notes
 The project is developed solely on a personal initiative and has no commercial purpose.
+
+[Try the Telegram bot](https://t.me/kemsuhelperbot)
